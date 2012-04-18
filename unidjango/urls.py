@@ -5,6 +5,8 @@ from django.conf.urls.defaults import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+
+	url(r'^/adduser/', 'unidjango.views')
     # Examples:
     # url(r'^$', 'unidjango.views.home', name='home'),
     # url(r'^unidjango/', include('unidjango.foo.urls')),
