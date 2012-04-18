@@ -2,7 +2,7 @@ from django.db import models
 
 class User(models.Model):
     # Facebook ID of user
-    uid = models.CharField(max_length=100, primary_key=True)
+    uid = models.IntegerField(max_length=100, primary_key=True)
     # Year that the user is in
     year = models.CharField(max_length=50)
     majorId = models.IntegerField(max_length=2, blank=True, null=True, default=None)
@@ -11,7 +11,7 @@ class User(models.Model):
     
 class Course(models.Model):
     # Course ID, incremented naturally
-    uid = models.AutoField(primary_key=True)
+    cid = models.AutoField(primary_key=True)
     # Semester - Fall, Spring or Summer
     semester = models.CharField(max_length=10)
     # Year that the course is offered
