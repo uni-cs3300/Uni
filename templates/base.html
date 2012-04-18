@@ -133,8 +133,9 @@
       {% endblock %}
     </header>
     <section id="get-started">
-      <p>Welcome to your Facebook app, running on
-      <span>heroku</span>!</p>
+      <form action="../views.py" method="get">
+		<input type="submit" value="Add User" />
+	  </form>
       <a class="button" href="https://devcenter.heroku.com/articles/facebook">Learn How to Edit This App</a>
     </section>
     {% block content%}
