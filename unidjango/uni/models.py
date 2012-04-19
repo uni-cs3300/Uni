@@ -2,7 +2,7 @@ from django.db import models
 
 class User(models.Model):
     # Facebook ID of user
-    uid = models.IntegerField(max_length=100, primary_key=True)
+    uid = models.IntegerField(primary_key=True)
     # Year that the user is in
     year = models.CharField(max_length=50)
     majorId = models.IntegerField(max_length=2, blank=True, null=True, default=None)
@@ -23,8 +23,6 @@ class Course(models.Model):
     time = models.CharField(max_length=100)
     description = models.CharField(max_length=1000)
     deptId = models.ForeignKey(Dept)
-    
-
 
 class Rating(models.Model):
     # Facebook ID of user
@@ -39,10 +37,30 @@ class Major(models.Model):
     deptId = models.ForeignKey(Dept)
     majorName = models.CharField(max_length=100)
     
-#class Enroll(models.Model):
-#    uid = models.For
+class Enroll(models.Model):
+    uid = models.ForeignKey(User)
+    cid = models.ForeignKey(Course)
+
+class Bookmark(models.Model):
+    uid = models.ForeignKey(User)
+    cid = models.ForeignKey(Course)
     
-    
+class Dept(models.Model):
+    deptId = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+
+class Quiz(models.Model):
+    qid = models.AutoField(primary_key=True)
+    uid = models.ForeignKey(User)
+    cid = models.ForeignKey(Course)
+    question = models.CharField(max_length=1000)
+    answer = models.CharField(max_length=1000)
+
+class Reply(models.Model):
+    replyId = models.AutoField(primary_key=True)
+    qid = models.ForeignKey(Quiz)
+    uid = models.ForeignKey(User)
+    reply = models.CharField(max_length=1000)
     
 
     
